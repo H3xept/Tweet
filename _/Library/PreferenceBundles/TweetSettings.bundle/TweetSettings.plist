@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+		<key>cell</key>
+		<string>PSGroupCell</string>
+		<key>headerCellClass</key>
+		<string>HeaderCellTweet</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string>General Settings</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>default</key><true/>
+			<key>defaults</key><string>com.h3xept.tweetsettings</string>
+			<key>key</key><string>isActive</string>
+			<key>label</key><string>Enabled</string>
+			<key>PostNotification</key><string>com.h3xept.tweet-tweetPreferencesChanged</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string>Info</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSButtonCell</string>
+			<key>default</key><true/>
+			<key>action</key><string>showTutorial:</string>
+			<key>defaults</key><string>com.h3xept.tweetsettings</string>
+			<key>label</key><string>Show tutorial for Tweet</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string></string>
+			<key>footerText</key><string>Tweet 1.0</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSButtonCell</string>
+			<key>default</key><true/>
+			<key>action</key><string>openWebsite:</string>
+			<key>defaults</key><string>com.h3xept.tweetsettings</string>
+			<key>label</key><string>Website</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSButtonCell</string>
+			<key>default</key><true/>
+			<key>action</key><string>openTwitter:</string>
+			<key>defaults</key><string>com.h3xept.tweetsettings</string>
+			<key>label</key><string>Twitter @H3xept</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string></string>
+			<key>footerText</key><string>Copyright © 2015 H3xept</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>TweetSettings</string>
+</dict>
+</plist>

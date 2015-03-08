@@ -1,0 +1,10 @@
+{
+    entry = {
+	bundle = TweetSettings;
+	cell = PSLinkCell;
+	detail = TweetSettingsListController;
+	icon = TweetSettings.png;
+	isController = 1;
+	label = TweetSettings;
+    };
+}

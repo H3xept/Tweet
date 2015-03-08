@@ -1,0 +1,10 @@
+Package: com.h3xept.tweet
+Name: Tweet
+Depends: mobilesubstrate, com.bd452.libpass
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: H3xept
+Author: H3xept
+Section: Tweaks
+Version: 0.0.1-19
+Installed-Size: 312
