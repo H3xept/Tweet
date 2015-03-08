@@ -1,9 +1,9 @@
 Package: com.h3xept.tweet
 Name: Tweet
-Depends: mobilesubstrate, com.bd452.libpass
-Version: 0.0.1
+Depends: mobilesubstrate
+Version: 1.0
 Architecture: iphoneos-arm
-Description: An awesome MobileSubstrate tweak!
+Description: Socials interaction in the lockscreen!
 Maintainer: H3xept
 Author: H3xept
 Section: Tweaks

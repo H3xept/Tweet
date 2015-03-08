@@ -18,7 +18,9 @@
 
 -(void)reloadPrefs{
     TweetSettings = [NSMutableDictionary dictionaryWithContentsOfFile:TWEETPLISTLOCATION];
+
     isActiveKey = TweetSettings[@"isActive"];
     _isActive = isActiveKey ? [isActiveKey boolValue] : 1;
+
 }
 @end

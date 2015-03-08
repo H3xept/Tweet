@@ -5,12 +5,10 @@
 
 #import <Social/Social.h>
 
-#define TWEETPLISTLOCATION @"/User/Library/Preferences/com.h3xept.tweetsettings.plist"
 #define t_twitterView 0
 #define t_facebookView 1
 
 //G VARS
-static BOOL firstLaunch = YES;
 BOOL shouldSleep = 1;
 BOOL isActive;
 TweetFloatingView* mainFloatingView;
@@ -67,7 +65,6 @@ void preferencesChanged();
 	if(arg1){
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Tweak-collapseStaticView" object:nil];
 	if(!mainFloatingView){
-		NSLog(@"TYPE -> %d",[mainView page]);
 		mainFloatingView = [[TweetFloatingView alloc] initWithType:[mainView page]];
 		mainFloatingView.hidden = YES;
 		[getScroller() addSubview:mainFloatingView];
@@ -90,29 +87,6 @@ void preferencesChanged();
 	mainFloatingView = nil;
 	mainView = nil;
 }
-%end
-//END
-
-//CHECK IF FIRST LAUNCH
-%hook SpringBoard
-
--(void)applicationDidFinishLaunching:(id)application {
-	%orig;
-	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:TWEETPLISTLOCATION];
-	NSMutableDictionary *mutableDict = dict ? [[dict mutableCopy] autorelease] : [NSMutableDictionary dictionary];
-
-	firstLaunch = ([mutableDict objectForKey:@"firstLaunch"] ? [[mutableDict objectForKey:@"firstLaunch"] boolValue] : firstLaunch);
-	if(firstLaunch == YES){
-
-		UIAlertView* greetingView = [[UIAlertView alloc] initWithTitle:@"Tweet - Tutorial" message:@"Thanks for downloading Tweet, to see a complete tutorial for this tweak, go to Tweet settings." delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-		[greetingView show];
-		[greetingView release];
-
-		[mutableDict setValue:0 forKey:@"firstLaunch"];
-		[mutableDict writeToFile:TWEETPLISTLOCATION atomically:YES];
-	}
-}
-
 %end
 //END
 

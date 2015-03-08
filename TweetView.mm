@@ -10,8 +10,10 @@
 @implementation TweetView
 
 -(instancetype)init{
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collapse) name:@"Tweak-collapseStaticView" object:nil];
 	self = [super initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width,130,[UIScreen mainScreen].bounds.size.width,100)];
+
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collapse) name:@"Tweak-collapseStaticView" object:nil];
+	
 	self.backgroundColor = [UIColor clearColor];
 	self.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width*2,100);
 	self.pagingEnabled = YES;
