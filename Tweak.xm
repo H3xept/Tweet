@@ -93,7 +93,7 @@ void preferencesChanged();
 %hook SpringBoard
 -(void)_handleMenuButtonEvent{
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){	
-		SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+	SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
     	[tweetSheet setInitialText:@""];
     	[(UIViewController *)[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:tweetSheet animated:YES completion:nil];
     }
