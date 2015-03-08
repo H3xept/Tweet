@@ -93,9 +93,18 @@ void preferencesChanged();
 %hook SpringBoard
 -(void)_handleMenuButtonEvent{
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){	
-	SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+
+    	UIWindow* tweetWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0,0,[UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height)];
+    	tweetWindow.windowLevel = UIWindowLevelAlert+1;
+    	tweetWindow.backgroundColor = [UIColor clearColor];
+
+		SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
     	[tweetSheet setInitialText:@""];
-    	[(UIViewController *)[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:tweetSheet animated:YES completion:nil];
+    	tweetSheet.completionHandler = ^(SLComposeViewControllerResult){CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(),CFSTR("Tweet-startIdleTimer"),NULL,NULL,YES); [tweetWindow release];};
+
+    	tweetWindow.rootViewController = tweetSheet;
+    	[tweetWindow makeKeyAndVisible];
+
     }
     %orig;
 }
