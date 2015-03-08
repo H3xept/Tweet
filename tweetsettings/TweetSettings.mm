@@ -77,7 +77,7 @@
 }
 
 -(float)preferredHeightForWidth:(float)arg1{
-    return 100.f;
+    return 100;
 }
 
 @end

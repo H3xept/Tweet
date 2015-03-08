@@ -60,6 +60,7 @@
     	tweetSheet.completionHandler = ^(SLComposeViewControllerResult){CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(),CFSTR("Tweet-startIdleTimer"),NULL,NULL,YES);};
     	[(UIViewController *)[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:tweetSheet animated:YES completion:nil];
     }
+
 }
 
 -(void)handleFaceTap:(UITapGestureRecognizer *)recognizer{

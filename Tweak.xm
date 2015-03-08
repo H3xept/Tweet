@@ -90,6 +90,18 @@ void preferencesChanged();
 %end
 //END
 
+%hook SpringBoard
+-(void)_handleMenuButtonEvent{
+	NSLog(@"EXEC");
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){	
+		SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    	[tweetSheet setInitialText:@""];
+    	[(UIViewController *)[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:tweetSheet animated:YES completion:nil];
+    }
+    %orig;
+}
+%end
+
 //HELPERS
 SBLockScreenScrollView* getScroller(){
 	SBLockScreenViewController* lockScreenViewController = MSHookIvar<SBLockScreenViewController*>([%c(SBLockScreenManager) sharedInstance], "_lockScreenViewController");
