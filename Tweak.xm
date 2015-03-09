@@ -87,6 +87,7 @@ void preferencesChanged();
 	mainFloatingView = nil;
 	mainView = nil;
 }
+
 %end
 //END
 
